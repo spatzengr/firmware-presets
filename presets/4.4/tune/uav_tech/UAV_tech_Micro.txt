@@ -1,8 +1,8 @@
-#$ TITLE: UAV Tech - Micro (2" to 4")
+#$ TITLE: UAV Tech - Micro (2in to 4in)
 #$ FIRMWARE_VERSION: 4.4
 #$ CATEGORY: TUNE
-#$ STATUS: EXPERIMENTAL
-#$ KEYWORDS: 2S, 3S, 4S, 6S, toothpic, 2in, 2.5in, 3in, 3.5in, 4in
+#$ STATUS: COMMUNITY
+#$ KEYWORDS: 2S, 4S, 6S, toothpic, 2in, 3in, 3.5in, 4in
 #$ AUTHOR: UAV Tech (Mark Spatz)
 
 #$ PARSER: MARKED
@@ -18,7 +18,10 @@
 #$ DESCRIPTION:
 #$ DESCRIPTION: Description:
 #$ DESCRIPTION: -----------
-#$ DESCRIPTION: Base tune for a micro quadcopters; anything from 2" ("Toothpic") to 4".  This tune is good for 2S to 6S batteries. The base preset assume you have your ESC set to 24K PWM (default). If you are on 48K+, click the option above. Also if you would like to use with the RPM filtering or Dynamic Idle, click the option above. If you don't know what these features mean, click the links below for videos on each topic.
+#$ DESCRIPTION: Base tune for a micro quadcopters; anything from 2" ("Toothpic") to 4".  This tune is good for 2S or 6S batteries.
+#$ DESCRIPTION: The base preset assume you have your ESC set to 24K PWM (default). If you are on 48K+, click the option above.
+#$ DESCRIPTION: Also if you would like to use with the RPM filtering or Dynamic Idle, click the option above.
+#$ DESCRIPTION: If you don't know what these features mean, click the links below for videos on each topic.
 #$ DESCRIPTION:
 #$ DESCRIPTION: <img src="https://i0.wp.com/theuavtech.com/wp-content/uploads/2020/10/icon-150x150-1.png" width="100px" style="margin-left: auto; margin-right: auto; display: block;"/>
 #$ DESCRIPTION:

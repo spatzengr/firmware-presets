@@ -1,7 +1,7 @@
 #$ TITLE: UAV Tech - Cinelog (250-300g AUW)
 #$ FIRMWARE_VERSION: 4.4
 #$ CATEGORY: TUNE
-#$ STATUS: EXPERIMENTAL
+#$ STATUS: COMMUNITY
 #$ KEYWORDS: CineLog
 #$ AUTHOR: UAV Tech (Mark Spatz)
 
@@ -103,7 +103,6 @@ set pidsum_limit_yaw = 1000
     	# -- ADDER: Enabled RPM filtering --
     	set motor_pwm_protocol = DSHOT600
     	set dshot_bidir = ON
-    	set motor_poles = 12
     	set rpm_filter_harmonics = 2
     	set dyn_notch_count = 2
     #$ OPTION END
