@@ -1,5 +1,6 @@
 {
   "settings": {
+    "MetapropertyDirective": "#$",
     "PresetCategories": {
       "TUNE": "TUNE",
       "RATES": "RATES",
@@ -20,7 +21,8 @@
       "FILE_PATH": "FILE_PATH",
       "BOOLEAN": "BOOLEAN",
       "WORDS_ARRAY": "WORDS_ARRAY",
-      "FILE_PATH_ARRAY": "FILE_PATH_ARRAY"
+      "FILE_PATH_ARRAY": "FILE_PATH_ARRAY",
+      "PRESET_STATUS": "PRESET_STATUS"
     },
     "OptionsDirectives": {
       "OPTION_DIRECTIVE": "option",
@@ -29,6 +31,11 @@
       "OPTION_CHECKED": "(checked)",
       "OPTION_UNCHECKED": "(unchecked)"
     },
+    "PresetStatusEnum": [
+      "OFFICIAL",
+      "COMMUNITY",
+      "EXPERIMENTAL"
+    ],
     "presetsDir": "presets",
     "presetsFileEncoding": "utf-8",
     "presetsFileMetadata": {
@@ -36,7 +43,7 @@
         "type": "STRING",
         "optional": false
       },
-      "firmwareVersion": {
+      "firmware_version": {
         "type": "STRING_ARRAY",
         "optional": false
       },
@@ -44,8 +51,8 @@
         "type": "PRESET_CATEGORY",
         "optional": false
       },
-      "official": {
-        "type": "BOOLEAN",
+      "status": {
+        "type": "PRESET_STATUS",
         "optional": false
       },
       "author": {
@@ -64,18 +71,34 @@
         "type": "WORDS_ARRAY",
         "optional": true
       },
-      "nosearch": {
+      "hidden": {
         "type": "BOOLEAN",
         "optional": true
       },
       "discussion": {
         "type": "STRING",
         "optional": true
+      },
+      "warning": {
+        "type": "STRING",
+        "optional": true
+      },
+      "disclaimer": {
+        "type": "STRING",
+        "optional": true
+      },
+      "include_warning": {
+        "type": "FILE_PATH_ARRAY",
+        "optional": true
+      },
+      "include_disclaimer": {
+        "type": "FILE_PATH_ARRAY",
+        "optional": true
       }
     }
   },
   "uniqueValues": {
-    "firmwareVersion": [
+    "firmware_version": [
       "4.3"
     ],
     "category": [
@@ -83,7 +106,6 @@
       "LEDS",
       "MODES",
       "OSD",
-      "OTHER",
       "RATES",
       "RC_LINK",
       "RC_SMOOTHING",
@@ -92,89 +114,68 @@
     ],
     "author": [
       "Betaflight",
-      "Thomas \"BMSThomas\" Bitmatta",
-      "Zak Smiley sugarK",
-      "ctzsnooze"
+      "UAV Tech (Mark Spatz)"
     ],
     "keywords": [
-      "150hz",
-      "250hz",
-      "5 inch",
+      "2in",
+      "3.5in",
+      "3in",
       "5\"",
-      "500hz",
-      "50hz",
-      "6S",
-      "Crossfire",
-      "ELRS",
-      "GPS",
-      "HD_freestyle",
+      "5in",
+      "6\"",
+      "6in",
+      "7\"",
+      "7in",
+      "8\"",
+      "8in",
+      "9\"",
+      "9in",
+      "HD",
       "OSD",
-      "TBS",
+      "actual",
       "adjustments",
-      "aggressive",
       "aux",
-      "blackbox",
-      "camera",
-      "camera_control",
-      "cfv2",
-      "cfv3",
+      "basic",
+      "cinelifter",
       "cinematic",
+      "cinewhoop",
       "clear",
-      "control",
+      "default",
       "defaults",
-      "dynamic",
       "filter",
       "filters",
       "freestyle",
-      "freestyle_HD",
-      "frsky",
-      "hd",
-      "jitter",
-      "karate",
-      "launch",
-      "launch_mode",
+      "freetyle",
       "leds",
-      "link",
-      "log",
-      "logging",
+      "long range",
       "mode",
       "modes",
-      "names",
       "pid",
-      "profile",
-      "race",
-      "racing",
       "rates",
-      "rc",
       "rc link",
       "rc smoothing",
       "rc_link",
       "rc_smoothing",
       "reset",
-      "reset statistics",
-      "sbus",
-      "smooth",
-      "smoothing",
-      "stats",
       "switch",
-      "tracer",
-      "transition",
+      "toothpic",
       "tune",
       "vtx",
-      "world champion"
+      "vtxtable",
+      "whoop"
     ]
   },
   "presets": [
     {
       "fullPath": "presets/4.3/filters/defaults.txt",
-      "hash": "1b79df5ceee4b4c1d80f2dfbdc3bd525944776e9b069c06f5a832d0ee7451666",
+      "hash": "b55352e30ac122256e4fca3a7e72e18d660e71f45d3e94bc4a4eca93ce7aff71",
       "options": [],
       "title": "Default 4.3 Filter settings",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "FILTERS",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "filter",
@@ -188,14 +189,14 @@
     },
     {
       "fullPath": "presets/4.3/leds/defaults.txt",
-      "hash": "c5b366058d0e20946395d62fda67e0ea49dd5842df804a7863ead73e5eb250f4",
+      "hash": "c1dc1b69bd7b001253f05b56f3f6c3d60e93615c718f30a3b815846f445d1f6c",
       "options": [],
       "title": "Default 4.3 LED settings",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "LEDS",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "reset",
@@ -209,14 +210,14 @@
     },
     {
       "fullPath": "presets/4.3/modes/defaults.txt",
-      "hash": "6d0d35c169b503826866b81908c321cb4caef08518115c444a800f90b9167eeb",
+      "hash": "16a19e27a46efcd9f86d56f17e8fe82356921399cc0c5502e257e33ef8c321c3",
       "options": [],
       "title": "Default 4.3 Modes and Adjustment settings",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "MODES",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "reset",
@@ -233,14 +234,14 @@
     },
     {
       "fullPath": "presets/4.3/osd/defaults.txt",
-      "hash": "587c0eb6969bc40d03038673c3090d75b5f22bd938a0cffa3ec1923ca3deb5b8",
+      "hash": "678b47f6387b4728d81df47685778882f34bf1afa1b321ce7193e34d351d6927",
       "options": [],
       "title": "Default 4.3 OSD settings",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "OSD",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "reset",
@@ -252,320 +253,81 @@
       ]
     },
     {
-      "fullPath": "presets/4.3/other/reset_blackbox.txt",
-      "hash": "8d314c75308b44a5e6bd4146eba913f795eb07a4e549a354bccb2807396f871a",
-      "options": [],
-      "title": "Reset 4.3 Blackbox settings",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "OTHER",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "reset",
-        "blackbox",
-        "logging",
-        "log"
-      ],
-      "author": "Betaflight",
-      "description": [
-        "Resets the 4.3 blackbox settings back to defaults"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/other/reset_camera_control.txt",
-      "hash": "7e3f13369312938df5f4dee8113229794f2c3cc8485c45a943eaf20bf3bddf75",
-      "options": [],
-      "title": "Reset Camera Control settings",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "OTHER",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "reset",
-        "names",
-        "camera",
-        "control",
-        "camera_control"
-      ],
-      "author": "Betaflight",
-      "description": [
-        "Resets the Camera Control settings to 4.3 defaults"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/other/reset_gps.txt",
-      "hash": "1c27a54a0461a60cc8593219251ceef84491e8647b01f99e76e23fd8ac0df246",
-      "options": [
-        {
-          "name": "enable GPS?",
-          "checked": false
-        }
-      ],
-      "title": "Reset GPS settings",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "OTHER",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "reset",
-        "GPS"
-      ],
-      "author": "Betaflight",
-      "description": [
-        "Resets the GPS settings to 4.3 defaults",
-        "Optionally enable GPS feature, default is off"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/other/reset_launch_mode.txt",
-      "hash": "6cdec094ca38c8956ae96604d512e3143c14cda2644d55033713e471e497b617",
-      "options": [],
-      "title": "Reset Launch Mode settings",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "OTHER",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "reset",
-        "names",
-        "launch",
-        "launch_mode"
-      ],
-      "author": "Betaflight",
-      "description": [
-        "Resets the Launch Mode settings to 4.3 defaults"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/other/reset_names.txt",
-      "hash": "4acfcea9134b9182db414bdd621cd4d9c216dd8115c4a0ae8bf75b09b6835432",
-      "options": [
-        {
-          "name": "reset profile 1 name?",
-          "checked": true
-        }
-      ],
-      "title": "Reset 4.3 Names",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "OTHER",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "reset",
-        "names",
-        "profile"
-      ],
-      "author": "Betaflight",
-      "description": [
-        "Resets the craft names and optionally resets profile names"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/other/reset_servo.txt",
-      "hash": "ac03ec723b780a146984d4fc064d5fb033491965f92a1decc594c8ad30036b79",
-      "options": [],
-      "title": "Reset 4.3 Stats",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "OTHER",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "reset statistics",
-        "stats"
-      ],
-      "author": "Betaflight",
-      "description": [
-        "Resets the 4.3 servo settings back to defaults"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/other/reset_stats.txt",
-      "hash": "7f015f073f845f7528de9652ff492836d409977549874769ab515f99da3685f7",
-      "options": [],
-      "title": "Reset 4.3 Stats",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "OTHER",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "reset statistics",
-        "stats"
-      ],
-      "author": "Betaflight",
-      "description": [
-        "Resets the saved flight stats values back to zero"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rates/BMSThomas.txt",
-      "hash": "45e93c3765346f5f3887d1c080d3feb52699d813bc5e0ec43fc1cb452d39bbaf",
-      "options": [],
-      "title": "BMSThomas racing/freestyle rates",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RATES",
-      "official": false,
-      "keywords": [
-        "racing"
-      ],
-      "author": "Thomas \"BMSThomas\" Bitmatta",
-      "description": [
-        "Racing and freestyle rates by BMSThomas - MultiGP International Open 2019 champion",
-        "ACTUAL rates with 720 degrees/sec max"
-      ]
-    },
-    {
       "fullPath": "presets/4.3/rates/defaults.txt",
-      "hash": "e20c15abd80cc7d6c47ead2169a44e7c53906d8548adf210659fd25360ed3a86",
+      "hash": "968bc57fcba5bba104bddbb2f22892c503b95eabcf87b7b747d7c0ad32cbfa0b",
       "options": [],
       "title": "Default rates",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "RATES",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
-        "rates"
+        "rates",
+        "actual"
       ],
       "author": "Betaflight",
       "description": [
-        "Default Betaflight rates",
+        "Default Betaflight rates - ACTUAL",
         "Will be applied for the currently selected rate profile",
         "TPA values are not included",
         "Throttle limit and curve are not included"
       ]
     },
     {
-      "fullPath": "presets/4.3/rc_link/Crossfire_150hz_locked _CFV3.txt",
-      "hash": "90c1dafc92b12354bebb3bd09f1e6b59c8e1f216742228bf9181d0a5205f3fc9",
-      "options": [],
-      "title": "TBS Crossfire 150hz locked  CFV3",
-      "firmwareVersion": [
+      "fullPath": "presets/4.3/rates/UAV_tech.txt",
+      "hash": "5f295976877afbb695bcf9c21c697436f19dee83f1bafdac2da0a868aa91b6d1",
+      "options": [
+        {
+          "name": "Cinematic/HD Smoothing",
+          "checked": false
+        },
+        {
+          "name": "Whooping in Angle\\Horizon Mode",
+          "checked": false
+        }
+      ],
+      "title": "UAV Tech Rates (w/ Cinematic/Whoop Options)",
+      "firmware_version": [
         "4.3"
       ],
-      "category": "RC_LINK",
-      "official": true,
+      "category": "RATES",
+      "status": "OFFICIAL",
       "keywords": [
-        "rc link",
-        "TBS",
-        "cfv3",
-        "150hz",
-        "Crossfire"
+        "whoop",
+        "freetyle",
+        "cinematic",
+        "HD"
       ],
-      "author": "Zak Smiley sugarK",
+      "author": "UAV Tech (Mark Spatz)",
       "description": [
-        "setup for TBS Crossfire 150hz locked  CFV3",
-        "WARNING: make ABSOLUTELY SURE that the Hardware > ADC Filter is un-checked! and both radio and the TX unit are all up to date with the latest EdgeTX, OpenTX or FreedomTX",
-        "Please use RC smoothing presets for flying style required. Note base settings are for racing, there is a check box at the end for freestyle.",
-        "There are 2 current types of Crossfire protocol, CFV2 and CFV3 this can be checked in your TBS lua"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/Crossfire_150hz_locked_CFV2.txt",
-      "hash": "348f1b8c40f860a10a03558eca8cb737eb99ea4f47ad4c3f65867ec4a2158ae7",
-      "options": [],
-      "title": "TBS Crossfire 150hz locked  CFV2",
-      "firmwareVersion": [
-        "4.3"
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "BASE",
+        "- FREESTYLE: 1000 degrees/sec for roll and pitch, 700 - for yaw. Smooth at center stick, but still snappy.",
+        "",
+        "OPTIONS:",
+        "- CINEMATIC/HD: Same max rates, but adds more smoothing (Expo.) at center stick for smooth transitions when you pass over stick centers (improved \"skating\" HD footage).",
+        "",
+        "- WHOOP: For whoop racing in Angle/Horizon Modes.  Adjust Yaw rate and also Angle/Horizon Strenght, Level Limit and Transition.  It along with adds 0.5 Throttle Expo at the 45% throttle.",
+        ""
       ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "rc link",
-        "tracer",
-        "TBS",
-        "cfv2",
-        "150hz",
-        "Crossfire"
-      ],
-      "author": "Zak Smiley sugarK",
-      "description": [
-        "setup for TBS Crossfire 150hz locked  CFV2",
-        "WARNING: make ABSOLUTELY SURE that the Hardware > ADC Filter is un-checked! and both radio and the TX unit are all up to date with the latest EdgeTX, OpenTX or FreedomTX",
-        "Please use RC smoothing presets for flying style required. Note base settings are for racing, there is a check box at the end for freestyle.",
-        "There are 2 current types of Crossfire protocol, CFV2 and CFV3 this can be checked in your TBS lua"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/Crossfire_50hz_locked_CFV2_CFV3.txt",
-      "hash": "024ba7a1413baef115390bd234634afb97f1c88576347fc814f20ab41289208d",
-      "options": [],
-      "title": "TBS Crossfire 50hz locked  CFV2/CFV3",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "rc link",
-        "TBS",
-        "cfv2",
-        "50hz",
-        "Crossfire"
-      ],
-      "author": "Zak Smiley sugarK",
-      "description": [
-        "setup for TBS Crossfire 50hz locked  CFV2",
-        "WARNING: make ABSOLUTELY SURE that the Hardware > ADC Filter is un-checked! and both radio and the TX unit are all up to date with the latest EdgeTX, OpenTX or FreedomTX",
-        "Please use RC smoothing presets for flying style required. Note base settings are for racing, there is a check box at the end for freestyle.",
-        "There are 2 current types of Crossfire protocol, CFV2 and CFV3 this can be checked in your TBS lua"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/Crossfire_dyanmic_rate.txt",
-      "hash": "8893cc9ac72f68a13674f1205259460291eb43fda64afb56e98ed7e123f87e85",
-      "options": [],
-      "title": "TBS Crossfire Dynamic rate CFV2/CFV3",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "rc link",
-        "TBS",
-        "cfv2",
-        "150hz",
-        "Crossfire",
-        "dynamic",
-        "cfv3"
-      ],
-      "author": "Zak Smiley sugarK",
-      "description": [
-        "setup for TBS Crossfire dynamic rate  CFV2/CFV3",
-        "WARNING: make ABSOLUTELY SURE that the Hardware > ADC Filter is un-checked! and both radio and the TX unit are all up to date with the latest EdgeTX, OpenTX or FreedomTX",
-        "Please use RC smoothing presets for flying style required. Note base settings are for racing, there is a check box at the end for freestyle.",
-        "There are 2 current types of Crossfire protocol, CFV2 and CFV3 this can be checked in your TBS lua. Also frankly we DO NOT recommend this TX setting, preferring one or the other of the locked modes as the RC smoothing can only be optimised for one of the frequency modes"
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/91",
+      "include": [
+        "presets/4.3/rates/defaults.txt"
       ]
     },
     {
       "fullPath": "presets/4.3/rc_link/defaults.txt",
-      "hash": "84509d0d8a09c3494cbf702c8b697093ceec7dab03983100e15f07f44cef79df",
+      "hash": "44965114019d72a94d515080ffbe70f9e5c10c7713cef04db1d81a4df4014d16",
       "options": [],
       "title": "Default 4.3 RC link settings",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "RC_LINK",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "reset",
@@ -578,281 +340,15 @@
       ]
     },
     {
-      "fullPath": "presets/4.3/rc_link/elrs_150hz.txt",
-      "hash": "876d47e40cb7d21e90161162d45d0abbccb09a4c237e6e38b3d0746481810bcb",
-      "options": [
-        {
-          "name": "Whole pack voltage readings",
-          "checked": false
-        },
-        {
-          "name": "Stronger smoothing for HD or cinematic (not for racing)",
-          "checked": false
-        }
-      ],
-      "title": "ELRS 150hz",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "ELRS",
-        "rc",
-        "link",
-        "rc_link",
-        "150hz"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "Basic RC link settings for a 150hz ELRS link via CRSF",
-        "WARNING: make ABSOLUTELY SURE that the OpenTx or EdgeTx Hardware ADC Filter is un-checked!",
-        "WARNING: check that you are using a compatible version of EdgeTx or OpenTx!",
-        "The voltage option is for OpenTx telemetry back to the transmitter, default is per cell, option is whole pack"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/elrs_250hz.txt",
-      "hash": "2d743facb8126e11333171a768a26b8a46b21f5bcb35e571aae4825a5f7dfd8c",
-      "options": [
-        {
-          "name": "Whole pack voltage readings",
-          "checked": false
-        },
-        {
-          "name": "Stronger smoothing for HD or cinematic (not for racing)",
-          "checked": false
-        }
-      ],
-      "title": "ELRS 250hz",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "ELRS",
-        "rc",
-        "link",
-        "250hz"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "Basic RC link settings for a 250hz ELRS link via CRSF",
-        "WARNING: make ABSOLUTELY SURE that the OpenTx or EdgeTx Hardware ADC Filter is un-checked!",
-        "WARNING: check that you are using a compatible version of EdgeTx or OpenTx!",
-        "Voltage option is for OpenTx telemetry back to the transmitter, default is per cell, option whole pack"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/elrs_500hz.txt",
-      "hash": "78f66ce543694d0eefc552820a22eda7d7167c205ca8781d9f22baf88f3c963c",
-      "options": [
-        {
-          "name": "Whole pack voltage readings",
-          "checked": false
-        },
-        {
-          "name": "Stronger smoothing for HD or cinematic (not for racing)",
-          "checked": false
-        }
-      ],
-      "title": "ELRS 500hz",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "ELRS",
-        "rc",
-        "link",
-        "500hz"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "Basic RC link settings for a 500hz ELRS link via CRSF",
-        "WARNING: make ABSOLUTELY SURE that the OpenTx or EdgeTx Hardware ADC Filter is un-checked!",
-        "WARNING: check that you are using a compatible version of EdgeTx or OpenTx!",
-        "If a log shows excessive noise in your feedforward trace, most likely there is a Tx firmware issue",
-        "The Voltage option is for OpenTx telemetry back to the transmitter, default is per cell, option whole pack"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/elrs_50hz.txt",
-      "hash": "2761b6941f31e7622efe05636dede80f1de7027031aea6a9892c67bf54492fd0",
-      "options": [
-        {
-          "name": "Whole pack voltage readings",
-          "checked": false
-        },
-        {
-          "name": "Stronger smoothing for HD or cinematic (not for racing)",
-          "checked": false
-        }
-      ],
-      "title": "ELRS 50hz",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "ELRS",
-        "rc",
-        "link",
-        "rc_link",
-        "50hz"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "Basic RC link settings for a 50hz ELRS link via CRSF",
-        "WARNING: make ABSOLUTELY SURE that the OpenTx or EdgeTx Hardware ADC Filter is un-checked!",
-        "WARNING: check that you are using a compatible version of EdgeTx or OpenTx!",
-        "The voltage option is for OpenTx telemetry back to the transmitter, default is per cell, option is whole pack"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/frsky_sbus.txt",
-      "hash": "76c972e76f0cbfd5fa15e7427e6a869a74f0e7fa79b43dad568afe389849025e",
-      "options": [
-        {
-          "name": "Whole pack voltage readings",
-          "checked": false
-        },
-        {
-          "name": "Imperial units",
-          "checked": false
-        },
-        {
-          "name": "Telemetry inverted",
-          "checked": false
-        },
-        {
-          "name": "Full duplex telemetry",
-          "checked": false
-        }
-      ],
-      "title": "FrSky Sbus",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "frsky",
-        "sbus",
-        "rc",
-        "link"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "Basic RC link settings for a 111hz / 9ms FrSky Sbus link, with the Rx bound in D16 mode with no more than 8 channels",
-        "These settings work best when used with a version of OpenTx with good module sync",
-        "Note: Telemetry requires smartPort (s.Port) and does not convey RSSI (use Lua or analog RSSI)",
-        "Note: When more than 8 channels are used, manual RC smoothing settings and two point averaging is required",
-        "Early versions of OpenTx with poor module sync will require two point averaging",
-        "Cell vs full voltage option affects which value will be sent by telemetry to the handset.  Default is per cell.",
-        "Units default to metric. Telemetry defaults to non-inverted and half-duple.  Both can be changed with checkbox",
-        "Other telemetry settings,eg gps format, default latitude and longitude, extra sensors, require manual CLI entries"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/Tracer_CFV2.txt",
-      "hash": "2caad2bb6c6602918deceeedf7bd7b6ad170ba12a6df297a61b7e300329be601",
-      "options": [],
-      "title": "TBS Tacer CFV2",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "rc link",
-        "tracer",
-        "TBS",
-        "cfv2",
-        "250hz"
-      ],
-      "author": "Zak Smiley sugarK",
-      "description": [
-        "setup fo the various TBS radio links via CRSF",
-        "WARNING: make ABSOLUTELY SURE that the Hardware > ADC Filter is un-checked! and both radio and the TX unit are all up to date with the latest EdgeTX, OpenTX or FreedomTX",
-        "Please use RC smoothing presets for flying style required. Note base settings are for racing, there is a check box at the end for freestyle.",
-        "There are 2 current types of Crossfire protocol, CFV2 and CFV3 this can be checked in your TBS lua"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_link/Tracer_CFV3.txt",
-      "hash": "7eb823ba43739a3c6c0567c0dff57272a6d2fb8f01051721b02f6f3f1eed9013",
-      "options": [],
-      "title": "TBS Tacer CFV3",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_LINK",
-      "official": true,
-      "keywords": [
-        "defaults",
-        "rc link",
-        "tracer",
-        "TBS",
-        "cfv3",
-        "250hz"
-      ],
-      "author": "Zak Smiley sugarK",
-      "description": [
-        "setup for TBS Tacer CFV3",
-        "WARNING: make ABSOLUTELY SURE that the Hardware > ADC Filter is un-checked! and both radio and the TX unit are all up to date with the latest EdgeTX, OpenTX or FreedomTX",
-        "Please use RC smoothing presets for flying style required. Note base settings are for racing, there is a check box at the end for freestyle.",
-        "There are 2 current types of Crossfire protocol, CFV2 and CFV3 this can be checked in your TBS lua"
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_smoothing/cinematic_ctzsnooze.txt",
-      "hash": "b91cc7fec277bae5e0e78339b50ea3a4d9ae01cd5df1041947a8f4df43172933",
-      "options": [
-        {
-          "name": "Recommended Actual rates",
-          "checked": false
-        }
-      ],
-      "title": "Cinematic RC smoothing",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_SMOOTHING",
-      "official": true,
-      "keywords": [
-        "cinematic",
-        "rc",
-        "smoothing",
-        "rc_smoothing",
-        "jitter",
-        "transition",
-        "hd"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "Warning: will feel VERY 'soft' and unresponsive for small stick inputs!",
-        "Note: auto-smoothing values are over-ridden by manually configure cutoff values.",
-        "Option: enable Actual Rates, low centre sensitivity, no expo, 500 deg/s max",
-        "This preset provides RC smoothing settings for cinematic HD footage.  By using fixed cutoffs, it will give a consistent smooth stick feel across a wide range of RC link frequencies",
-        "There is no need to turn off feedforward; it should remain at values that give good stick responsiveness.",
-        "For even smoother stick feel, reduce rc_smoothing_setpoint_cutoff and rc_smoothing_feedforward_cutoff to 10 in CLI.  If too smooth, increase rc_smoothing_setpoint_cutoff and rc_smoothing_feedforward_cutoff to 20 in CLI."
-      ]
-    },
-    {
       "fullPath": "presets/4.3/rc_smoothing/defaults.txt",
-      "hash": "8e1ec13273866d9304eb2347ba4aed6325cb28a5acad747589ef59cfd63b1c78",
+      "hash": "a1c12a5b8fb6d7859f70e603144b74a570e664573b6f4455807d6c427cb35621",
       "options": [],
       "title": "Default 4.3 RC smoothing settings",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "RC_SMOOTHING",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "reset",
@@ -865,164 +361,322 @@
       ]
     },
     {
-      "fullPath": "presets/4.3/rc_smoothing/freestyle_ctzsnooze.txt",
-      "hash": "a968b191f033db18c04063851d3c486293d44ff3ee8b388afdb3c3daad70ec78",
-      "options": [
-        {
-          "name": "Recommended Actual rates",
-          "checked": false
-        }
-      ],
-      "title": "Freestyle RC smoothing",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_SMOOTHING",
-      "official": true,
-      "keywords": [
-        "freestyle",
-        "rc",
-        "smooth",
-        "smoothing",
-        "rc_smoothing",
-        "jitter"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "RC smoothing settings for Freestyle footage",
-        "Fixed cutoff frequency for consistent, responsive results over a wide range of RC link frequencies. Auto-smoothing cutoff values are over-ridden by the fixed cutoff values.",
-        "There should be no need to turn off feedforward or to enable transition, beause the jitter reduction provides dynamic attenuation of feedforward whenever the sticks move slowly.",
-        "Option: Actual Rates, with centre sensitivity around 60 and 750 deg/s max."
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_smoothing/hd_freestyle_ctzsnooze.txt",
-      "hash": "002528d0e8754c125f1eadd065d8f2fdeb734e8606cee5b8654fc4fb6e264e59",
-      "options": [
-        {
-          "name": "Recommended Actual rates",
-          "checked": false
-        }
-      ],
-      "title": "Freestyle HD RC smoothing",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_SMOOTHING",
-      "official": true,
-      "keywords": [
-        "freestyle",
-        "rc",
-        "smooth",
-        "HD",
-        "freestyle_HD",
-        "HD_freestyle",
-        "smoothing",
-        "rc_smoothing",
-        "jitter"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "RC smoothing settings for smooth HD freestyle footage.",
-        "This preset uses fixed manual cutoff frequencies for consistent results over a wide range of RC link frequencies - the auto cutoff values are not used.",
-        "There is no need to turn off feedforward or to enable transition; jitter reduction provides dynamic attenuation of feedforward when sticks move slowly.",
-        "Option: Actual Rates, centre sensitivity around 30 deg/s, max rate 750 deg/s, with zero expo."
-      ]
-    },
-    {
-      "fullPath": "presets/4.3/rc_smoothing/race_ctzsnooze.txt",
-      "hash": "99598640b74b5108af11d6502a94822c2bde8ad3b32c83adb8247c61b9aa6fad",
-      "options": [],
-      "title": "Race RC smoothing",
-      "firmwareVersion": [
-        "4.3"
-      ],
-      "category": "RC_SMOOTHING",
-      "official": true,
-      "keywords": [
-        "aggressive",
-        "rc",
-        "smoothing",
-        "race",
-        "rc_smoothing",
-        "jitter"
-      ],
-      "author": "ctzsnooze",
-      "description": [
-        "RC smoothing settings for racing that slightly increases stick responsiveness over defaults.",
-        "Note: this preset workse best with a locked-frequency RC link.",
-        "Uses automatic cutoff adjustment that will optimise the cutoff to the link frequency at arming. As a result, faster RC links will feel more responsive.",
-        "If sticks are too sensitive, increase the auto smoothing factors in the CLI.",
-        "Note: If motors feel warmer than usual after applying this preset, return the auto RC smoothing values back to default of 30."
-      ]
-    },
-    {
       "fullPath": "presets/4.3/tune/defaults.txt",
-      "hash": "c6fbd6a95b55710af2c8536e16a5efcfe68e77b247f668520a67bc62e113ad9a",
+      "hash": "893935eae369a70afb3579d04b991334c91b8fafc6c93b9985b0d4b70872f2d9",
       "options": [],
-      "title": "Default 4.3 Tune settings",
-      "firmwareVersion": [
+      "title": "Tune defaults for Basic 4.3 TUNES",
+      "firmware_version": [
         "4.3"
       ],
       "category": "TUNE",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "reset",
         "tune",
-        "pid"
+        "pid",
+        "basic",
+        "default"
       ],
       "author": "Betaflight",
       "description": [
-        "Resets Tune parameters to 4.3 defaults",
-        "WARNING: Resets MANY things, check the list before applying!",
-        "DOES NOT reset filters!  They must be separately reset"
+        "Resets all Basic 4.3 Tune category parameters to defaults",
+        "WARNING: Overwrites all settings mentioned below to defaults.  The User cannot retain their previous values.",
+        "WARNING: Tune authors must explicitly set these values to something other than default, if needed for the tune.",
+        "DOES NOT reset rates, filters, rc_smoothing, and many other parameters."
       ]
     },
     {
-      "fullPath": "presets/4.3/tune/karate_race_tune_preset.txt",
-      "hash": "126780257954ab672e7d9b9b3c6b307b6a32fb32c022d5585885a0529075954c",
+      "fullPath": "presets/4.3/tune/UAV_tech_5in.txt",
+      "hash": "1366a685802fdd5591a5d1155f48f56b1fc5b7368e48adbe7d7f3e385aa8df74",
       "options": [
         {
-          "name": "dynamic idle",
-          "checked": true
-        },
-        {
-          "name": "spicy tune",
+          "name": "48k ESC PWM",
           "checked": false
         }
       ],
-      "title": "Karate Race",
-      "firmwareVersion": [
+      "title": "UAV Tech - 5in (~630g AUW)",
+      "firmware_version": [
         "4.3"
       ],
       "category": "TUNE",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
-        "karate",
-        "6S",
-        "race",
-        "world champion",
-        "5 inch",
-        "5\""
+        "5in",
+        "5\"",
+        "freestyle"
       ],
-      "author": "Zak Smiley SugarK",
+      "author": "UAV Tech (Mark Spatz)",
       "description": [
-        "This 6s racing tune was developed with the help of @ctzsnooze around @karatebrot’s RPM crossfade code allowing a pretty aggressive filter array which is the karate array. This tune works well on any quality airframes and has been flown on the Viper racer (where it was developed ) BMS Js1, 533 switchback and the HGLRC wind. It should also work on other quality racing frames but use at your own risk as it is an aggressive tune. This tune so far has won a good number of events including the 2021 IO.",
-        "Things to note.. YOU have to use RPM filtering on this tune, failure to do so might result in fire and regarding Dshot600,  if your setup has errors in the motor tab using bidirectional Dshot then change to 8k/4k and dshot300. Also this should be applied to a clean flash after you've setup your rates, swtiches, vtx tables etc. To test arm the quad with props on, it should sound clean with no grinding, if it passes that then hover test and check motor temps. If any thing is off don't fly it!!",
-        "Radio links.. 1. Make sure your radio system is totally up to date using either Edgetx or Opentx and your ADC in the hardware page is OFF 2. Go to the radio presets and apply the correct setup for your system and link speed."
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "Base tune for a 5in quad with HD camera.",
+        "",
+        "OPTIONS:",
+        "- 48K ESC PWM",
+        ""
+      ],
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/??",
+      "include": [
+        "presets/4.3/tune/defaults.txt",
+        "presets/4.3/filters/defaults.txt"
+      ]
+    },
+    {
+      "fullPath": "presets/4.3/tune/UAV_tech_6-7in.txt",
+      "hash": "0d3b727fc7decfdd852e76c0c417f74dc20adc493c7fb2fa61dc4561f6c4e5c1",
+      "options": [
+        {
+          "name": "48k ESC PWM",
+          "checked": false
+        }
+      ],
+      "title": "UAV Tech - 6-7in (~700g AUW)",
+      "firmware_version": [
+        "4.3"
+      ],
+      "category": "TUNE",
+      "status": "OFFICIAL",
+      "keywords": [
+        "6in",
+        "7in",
+        "6\"",
+        "7\"",
+        "freestyle",
+        "long range"
+      ],
+      "author": "UAV Tech (Mark Spatz)",
+      "description": [
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "Base tune for a 6-75in quad with HD camera.",
+        "",
+        "OPTIONS:",
+        "- 48K ESC PWM",
+        "",
+        "Recommended motors for a 6″/7″ is 25xx+",
+        "Recommended motors for a 7″/8″ is 28xx+",
+        ""
+      ],
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/??",
+      "include": [
+        "presets/4.3/tune/defaults.txt",
+        "presets/4.3/filters/defaults.txt"
+      ]
+    },
+    {
+      "fullPath": "presets/4.3/tune/UAV_tech_8-9in.txt",
+      "hash": "7553fe0bc8ad8682aff024a1610a82e92b25a5913a17003afb8c41b0e9e28160",
+      "options": [
+        {
+          "name": "48k ESC PWM",
+          "checked": false
+        }
+      ],
+      "title": "UAV Tech - 8-9in (~750g AUW)",
+      "firmware_version": [
+        "4.3"
+      ],
+      "category": "TUNE",
+      "status": "OFFICIAL",
+      "keywords": [
+        "8in",
+        "9in",
+        "8\"",
+        "9\"",
+        "freestyle",
+        "long range"
+      ],
+      "author": "UAV Tech (Mark Spatz)",
+      "description": [
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "Base tune for a 8-9in quad with HD camera.",
+        "",
+        "OPTIONS:",
+        "- 48K ESC PWM",
+        "",
+        "Minimum motor size for a 9″/10″ is 28xx+ and really 31xx is recommended.",
+        ""
+      ],
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/??",
+      "include": [
+        "presets/4.3/tune/defaults.txt",
+        "presets/4.3/filters/defaults.txt"
+      ]
+    },
+    {
+      "fullPath": "presets/4.3/tune/UAV_tech_8-9in_Cinelifter.txt",
+      "hash": "c82f42433fea98ec76a0904b7c85ff30590004b0a71ef16b7b077194d9dcf4a2",
+      "options": [
+        {
+          "name": "48k ESC PWM",
+          "checked": false
+        }
+      ],
+      "title": "UAV Tech - 8-9in Cinelifter (>2,000g AUW)",
+      "firmware_version": [
+        "4.3"
+      ],
+      "category": "TUNE",
+      "status": "OFFICIAL",
+      "keywords": [
+        "8in",
+        "9in",
+        "8\"",
+        "9\"",
+        "cinelifter"
+      ],
+      "author": "UAV Tech (Mark Spatz)",
+      "description": [
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "Base tune for a 8-9in Cinelifter (4x or 8x) quad with Red or BlackMagic cameras.",
+        "",
+        "OPTIONS:",
+        "- 48K ESC PWM",
+        "",
+        "Minimum motor size for a 8″/9″ Cinelifter is 28xx; 31xx is recommended.",
+        ""
+      ],
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/??",
+      "include": [
+        "presets/4.3/tune/defaults.txt",
+        "presets/4.3/filters/defaults.txt"
+      ]
+    },
+    {
+      "fullPath": "presets/4.3/tune/UAV_tech_Cinewhoop.txt",
+      "hash": "4b62349b1992cc29c7e85441602be42f21076d970857c0a00ac99f418e02d4d1",
+      "options": [
+        {
+          "name": "48k ESC PWM",
+          "checked": false
+        },
+        {
+          "name": "96k ESC PWM",
+          "checked": false
+        }
+      ],
+      "title": "UAV Tech - Cinewhoop",
+      "firmware_version": [
+        "4.3"
+      ],
+      "category": "TUNE",
+      "status": "OFFICIAL",
+      "keywords": [
+        "cinewhoop"
+      ],
+      "author": "UAV Tech (Mark Spatz)",
+      "description": [
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "Base tune for a Cinewhoop.",
+        "This tune should get you right in the sweet spot for P/D balance and enough filter settings.",
+        "",
+        "OPTIONS:",
+        "- 48K ESC PWM",
+        "- 96K ESC PWM",
+        ""
+      ],
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/??",
+      "include": [
+        "presets/4.3/tune/defaults.txt",
+        "presets/4.3/filters/defaults.txt"
+      ]
+    },
+    {
+      "fullPath": "presets/4.3/tune/UAV_tech_Toothpic.txt",
+      "hash": "da10f86590ed9c32cac048a0faaa03e2ff24eec1c75c0ab34bb15443054dd776",
+      "options": [
+        {
+          "name": "48k ESC PWM",
+          "checked": false
+        },
+        {
+          "name": "96k ESC PWM",
+          "checked": false
+        }
+      ],
+      "title": "UAV Tech - Toothpic (2in to 3.5in)",
+      "firmware_version": [
+        "4.3"
+      ],
+      "category": "TUNE",
+      "status": "OFFICIAL",
+      "keywords": [
+        "toothpic",
+        "2in",
+        "3in",
+        "3.5in"
+      ],
+      "author": "UAV Tech (Mark Spatz)",
+      "description": [
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "Base tune for a toothpic quad; anything from 2\" to 3.5\".",
+        "",
+        "OPTIONS:",
+        "- 48K ESC PWM",
+        "- 96K ESC PWM",
+        ""
+      ],
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/??",
+      "include": [
+        "presets/4.3/tune/defaults.txt",
+        "presets/4.3/filters/defaults.txt"
+      ]
+    },
+    {
+      "fullPath": "presets/4.3/tune/UAV_tech_Whoop.txt",
+      "hash": "eb53d1d88fcfd67dd3e29dd92d37d57e521d07011e3fc2cb0cdcbe3c0e8fdfe0",
+      "options": [
+        {
+          "name": "48k ESC PWM",
+          "checked": false
+        },
+        {
+          "name": "96k ESC PWM",
+          "checked": false
+        }
+      ],
+      "title": "UAV Tech - Whoop (1S & 2S)",
+      "firmware_version": [
+        "4.3"
+      ],
+      "category": "TUNE",
+      "status": "OFFICIAL",
+      "keywords": [
+        "whoop"
+      ],
+      "author": "UAV Tech (Mark Spatz)",
+      "description": [
+        "Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)",
+        "",
+        "Base tune for a Whoop.",
+        "This tune should get you right in the sweet spot for P/D balance and enough filter settings.",
+        "",
+        "OPTIONS:",
+        "- 48K ESC PWM",
+        "- 96K ESC PWM",
+        ""
+      ],
+      "discussion": "https://github.com/betaflight/firmware-presets/pull/??",
+      "include": [
+        "presets/4.3/tune/defaults.txt",
+        "presets/4.3/filters/defaults.txt"
       ]
     },
     {
       "fullPath": "presets/4.3/vtx/defaults.txt",
-      "hash": "b6acb1cbc7478bac01262629acd59de5d13bffd556075042415d4e331de0ba50",
+      "hash": "a7d9e6d9019134ad328b62b67b4dda294bde3bfd038385feb2d5f5584f88926b",
       "options": [],
       "title": "Default 4.3 VTX settings",
-      "firmwareVersion": [
+      "firmware_version": [
         "4.3"
       ],
       "category": "VTX",
-      "official": true,
+      "status": "OFFICIAL",
       "keywords": [
         "defaults",
         "reset",
@@ -1032,6 +686,29 @@
       "author": "Betaflight",
       "description": [
         "Resets VTx settings and table back to 4.3 Defaults",
+        "Only the checked settings will be reset"
+      ]
+    },
+    {
+      "fullPath": "presets/4.3/vtx/defaults_vtx_tables.txt",
+      "hash": "ca7751007ea115e4aef9cfc8051832205100ab4d0be45b9694d506f193cdb1d6",
+      "options": [],
+      "title": "Default 4.3 VTX table settings",
+      "firmware_version": [
+        "4.3"
+      ],
+      "category": "VTX",
+      "status": "OFFICIAL",
+      "keywords": [
+        "defaults",
+        "reset",
+        "clear",
+        "vtx",
+        "vtxtable"
+      ],
+      "author": "Betaflight",
+      "description": [
+        "Resets only the VTX table back to 4.3 Defaults",
         "Only the checked settings will be reset"
       ]
     }

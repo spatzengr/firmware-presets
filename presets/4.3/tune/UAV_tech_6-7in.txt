@@ -1,0 +1,44 @@
+#$ TITLE: UAV Tech - 6-7in (~700g AUW)
+#$ FIRMWARE_VERSION: 4.3
+#$ CATEGORY: TUNE
+#$ STATUS: OFFICIAL
+#$ KEYWORDS: 6in, 7in, 6", 7", freestyle, long range
+#$ AUTHOR: UAV Tech (Mark Spatz)
+#$ DESCRIPTION: Mark is a Betaflight contributor, youtube content creator, and professional tuner (www.theuavtech.com)
+#$ DESCRIPTION: 
+#$ DESCRIPTION: Base tune for a 6-75in quad with HD camera.
+#$ DESCRIPTION: 
+#$ DESCRIPTION: OPTIONS:
+#$ DESCRIPTION: - 48K ESC PWM
+#$ DESCRIPTION:
+#$ DESCRIPTION:Recommended motors for a 6″/7″ is 25xx+
+#$ DESCRIPTION:Recommended motors for a 7″/8″ is 28xx+
+#$ DESCRIPTION: 
+#$ DISCUSSION: https://github.com/betaflight/firmware-presets/pull/??
+#$ INCLUDE: presets/4.3/tune/defaults.txt
+#$ INCLUDE: presets/4.3/filters/defaults.txt
+
+# -- Filter Settings --
+set simplified_dterm_filter = ON
+set simplified_gyro_filter = ON
+set dyn_notch_count = 5
+set dyn_notch_min_hz = 100
+set simplified_gyro_filter_multiplier = 60
+set simplified_dterm_filter_multiplier = 120
+
+# -- PID Settings --
+set anti_gravity_gain = 10000
+set simplified_master_multiplier = 150
+set simplified_d_gain = 150
+set simplified_dmax_gain = 0
+set simplified_pitch_d_gain = 125
+set simplified_pitch_pi_gain = 115
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+
+simplified_tuning apply
+
+#$ OPTION BEGIN (UNCHECKED): 48k ESC PWM
+# -- ADDER: For 48khz PWM --
+set thrust_linear = 20
+#$ OPTION END
