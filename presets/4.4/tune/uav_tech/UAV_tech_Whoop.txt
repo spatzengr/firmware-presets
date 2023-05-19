@@ -30,11 +30,11 @@
 #$ DESCRIPTION:   (Recommendation: 48K for Whoops | make sure to adjust in ESC settings)
 #$ DESCRIPTION:
 #$ DESCRIPTION:
-#$ DESCRIPTION: - [What is the RPM Filter?](https://youtu.be/ve_TNB0D87U)
+#$ DESCRIPTION: - [What is the RPM Filter?](https://youtu.be/Y_fIJ7-c0_A)
 #$ DESCRIPTION: - [RPM vs. Dynamic Notch ONLY](https://youtu.be/ve_TNB0D87U)
 #$ DESCRIPTION:
 #$ DESCRIPTION:
-#$ DESCRIPTION: - [What is Dynamic Idle?](https://youtu.be/2Mr-AP7K8YE)
+#$ DESCRIPTION: - [What is Dynamic Idle?](https://youtu.be/ynHsoQXifdU)
 #$ DESCRIPTION:
 #$ DESCRIPTION: Need more HELP?
 #$ DESCRIPTION: -----------
@@ -47,20 +47,36 @@
 #$ INCLUDE: presets/4.3/filters/defaults.txt
 
 # -- PID Settings --
+set simplified_pids_mode = RP
+set p_yaw = 100
+set i_yaw = 100
+set f_yaw = 200
 set simplified_d_gain = 140
 set simplified_pi_gain = 100
-set simplified_feedforward_gain = 100
+set simplified_feedforward_gain = 150
 set simplified_dmax_gain = 0
-set simplified_i_gain = 100
+set simplified_i_gain = 50
 set simplified_pitch_d_gain = 100
 set simplified_pitch_pi_gain = 100
 set simplified_master_multiplier = 160
 
 set iterm_relax_cutoff = 5
 set vbat_sag_compensation = 100
-set anti_gravity_gain = 90
+set anti_gravity_gain = 100
 set pidsum_limit = 1000
 set pidsum_limit_yaw = 1000
+set feedforward_max_rate_limit = 80
+set tpa_rate = 0
+
+#$ OPTION_GROUP BEGIN: Prop Wash Performance Booster ...
+    #$ OPTION BEGIN (UNCHECKED): Dynamic Idle (ESC bi-directional Dshot required)
+    	# -- ADDER: Enabling Dynamic Idle --
+ 	set motor_pwm_protocol = DSHOT300
+ 	set dshot_bidir = ON
+	set rpm_filter_harmonics = 0
+  	set dyn_idle_min_rpm = 30
+    #$ OPTION END
+#$ OPTION_GROUP END
 
 #$ OPTION_GROUP BEGIN: Choose ONE Filter option (+ RPM filter if desired)
     #$ OPTION BEGIN (UNCHECKED): low Build Quality
@@ -104,8 +120,11 @@ set pidsum_limit_yaw = 1000
     	set motor_pwm_protocol = DSHOT300
     	set dshot_bidir = ON
     	set motor_poles = 12
-    	set rpm_filter_harmonics = 2
+    	set rpm_filter_harmonics = 1
     	set dyn_notch_count = 2
+	set dyn_notch_q = 300
+    	set dyn_notch_min_hz = 100
+    	set dyn_notch_max_hz = 450
     #$ OPTION END
 #$ OPTION_GROUP END
 
@@ -117,19 +136,12 @@ set pidsum_limit_yaw = 1000
 
     #$ OPTION BEGIN (CHECKED): 48k ESC PWM Settings
     	# -- ADDER: For 48k ESC PWM Settings --
-    	set thrust_linear = 20
+    	set thrust_linear = 0
     #$ OPTION END
 
     #$ OPTION BEGIN (UNCHECKED): 96k+ ESC PWM Settings
     	# -- ADDER: For 96k ESC PWM Settings --
     	set thrust_linear = 40
-    #$ OPTION END
-#$ OPTION_GROUP END
-
-#$ OPTION_GROUP BEGIN: Prop Wash Performance Booster ...
-    #$ OPTION BEGIN (UNCHECKED): Dynamic Idle (ESC bi-directional Dshot required)
-    	# -- ADDER: Enabling Dynamic Idle --
-    	set dyn_idle_min_rpm = 40
     #$ OPTION END
 #$ OPTION_GROUP END
 
