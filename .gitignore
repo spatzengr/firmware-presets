@@ -55,8 +55,8 @@ eeprom.bin
 /public
 
 # generated index artifacts
-/index.json
-/index_hash.txt
+# /index.json
+# /index_hash.txt
 
 # NPM packages folder
 /node_modules
