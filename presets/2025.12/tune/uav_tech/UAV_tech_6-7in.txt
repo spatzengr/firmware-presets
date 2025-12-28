@@ -47,7 +47,7 @@
 #$ DESCRIPTION:
 #$ WARNING: **DO NOT** select the RPM Filter option unless your ESCs support DSHOT and Bi-Directional Communication.  If you are unsure, HIT CANCEL and de-select that option, OTHERWISE it can spin up motors even before you arm your quad!!!
 #$ DISCUSSION: https://github.com/betaflight/firmware-presets/pull/202
-#$ INCLUDE: presets/4.5/tune/defaults.txt
+#$ INCLUDE: presets/2025.12/tune/defaults.txt
 #$ INCLUDE: presets/4.5/filters/defaults.txt
 
 # -- PID Settings --
