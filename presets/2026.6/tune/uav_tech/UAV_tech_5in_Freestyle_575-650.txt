@@ -18,7 +18,7 @@
 #$ DESCRIPTION:
 #$ DESCRIPTION: Description:
 #$ DESCRIPTION: -----------
-#$ DESCRIPTION: Base tune for a 5in quad with analog or onboard HD cameras (DJI, HD Zero, Walksnail) - typically no GoPro added - an approximate weight of 575 to 650 grams.  This tune is good for 4S or 6S batteries. The base preset assumes you have your ESC set to 24K PWM (default).  If you are on 48K+ ESC PWM, click that option above. Also, if you would like to use with RPM filtering or Dynamic Idle, click the option above. If you don't know what these features mean, click the links below for videos on each topic.
+#$ DESCRIPTION: Base tune for a 5in quad with analog or onboard HD cameras (DJI, HD Zero, Walksnail) - typically no GoPro added - and an approximate weight of 575 to 650 grams.  This tune is good for 4S or 6S batteries. The base preset assumes you have your ESC set to 24K PWM (default).  If you are on 48K+ ESC PWM, click that option above. Also, if you would like to use RPM filtering or Dynamic Idle, click the option above. If you don't know what these features mean, click the links below for videos on each topic.
 #$ DESCRIPTION:
 #$ DESCRIPTION: <img src="https://i0.wp.com/theuavtech.com/wp-content/uploads/2020/10/icon-150x150-1.png" width="100px" style="margin-left: auto; margin-right: auto; display: block;"/>
 #$ DESCRIPTION:
@@ -39,7 +39,7 @@
 #$ DESCRIPTION: - [UAV Tech Discord](https://discordapp.com/invite/rCCzgeT)
 #$ DESCRIPTION: - [Take it to the NEXT LEVEL!](https://theuavtech.com/tuning)
 #$ DESCRIPTION:
-#$ WARNING: **DO NOT** select the RPM Filter option unless your ESCs support DSHOT and Bi-Directional Communication.  If you are unsure, HIT CANCEL and de-select that option, OTHERWISE it can spin up motors even before you arm your quad!!!
+#$ WARNING: **DO NOT** select the RPM Filter option unless your ESCs support DSHOT and Bi-Directional Communication.  If you are unsure, HIT CANCEL and deselect that option; OTHERWISE, it can spin up motors even before you arm your quad!!!
 #$ DISCUSSION: https://github.com/betaflight/firmware-presets/pull/201
 #$ INCLUDE: presets/2026.6/tune/defaults.txt
 #$ INCLUDE: presets/2026.6/filters/defaults.txt
@@ -115,7 +115,7 @@ set pidsum_limit_yaw = 1000
 
     #$ OPTION BEGIN (UNCHECKED): 48k+ ESC PWM Settings
         # -- ADDER: For 48k+ ESC PWM Settings --
-        set thrust_linear = 20
+        set thrust_linear = 15
     #$ OPTION END
 #$ OPTION_GROUP END
 
