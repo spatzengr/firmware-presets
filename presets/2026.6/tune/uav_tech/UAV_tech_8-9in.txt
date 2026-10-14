@@ -18,7 +18,7 @@
 #$ DESCRIPTION:
 #$ DESCRIPTION: Description:
 #$ DESCRIPTION: -----------
-#$ DESCRIPTION: Base tune for a 8-9in quad with HD camera, approximate weight from 1,000 to 1,400 grams.  This tune is good for 4S or 6S batteries. The base preset assume you have your ESC set to 24K PWM (default).  If you are on 48K+, click the option above. Also, if you would like to use with RPM filtering or Dynamic Idle, click the option above. If you don't know what these features mean, click the links below for videos on each topic.
+#$ DESCRIPTION: Base tune for an 8-9in quad with an HD camera and an approximate weight of 1,000 to 1,400 grams.  This tune is good for 4S or 6S batteries. The base preset assumes you have your ESC set to 24K PWM (default).  If you are on 48K+, click the option above. Also, if you would like to use RPM filtering or Dynamic Idle, click the option above. If you don't know what these features mean, click the links below for videos on each topic.
 #$ DESCRIPTION:
 #$ DESCRIPTION:
 #$ DESCRIPTION: Recommended MINIMUM motor sizes:
@@ -45,7 +45,7 @@
 #$ DESCRIPTION: - [UAV Tech Discord](https://discordapp.com/invite/rCCzgeT)
 #$ DESCRIPTION: - [Take it to the NEXT LEVEL!](https://theuavtech.com/tuning)
 #$ DESCRIPTION:
-#$ WARNING: Prior to selecting the "RPM Filter" or "Dynamic Idle" options, Bi-Directional DSHOT must be setup for your quad.  If you have not setup yet, click "CANCEL" and setup first (PROPS OFF to test).  If you have NOT selected the "RPM Filter" or "Dynamic Idle" options, YOU CAN IGNORE THIS MESSAGE.
+#$ WARNING: Prior to selecting the "RPM Filter" or "Dynamic Idle" options, Bi-Directional DSHOT must be set up for your quad.  If you have not set it up yet, click "CANCEL" and set it up first (PROPS OFF to test).  If you have NOT selected the "RPM Filter" or "Dynamic Idle" options, YOU CAN IGNORE THIS MESSAGE.
 #$ DISCUSSION: https://github.com/betaflight/firmware-presets/pull/206
 #$ INCLUDE: presets/2026.6/tune/defaults.txt
 #$ INCLUDE: presets/2026.6/filters/defaults.txt
@@ -119,7 +119,7 @@ set pidsum_limit_yaw = 1000
 
     #$ OPTION BEGIN (UNCHECKED): 48k+ ESC PWM Settings
         # -- ADDER: For 48k+ ESC PWM Settings --
-        set thrust_linear = 20
+        set thrust_linear = 15
     #$ OPTION END
 #$ OPTION_GROUP END
 
